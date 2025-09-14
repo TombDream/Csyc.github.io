@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退货流程管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6580);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin: 25px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .flow-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .step {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .step-content {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .branch-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .branch {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .branch-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .notes {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .notes h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            color: #2c3e50;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .process-steps, .branch-container {
+                flex-direction: column;
+            }
+            
+            .step, .branch {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>退货流程管理系统</h1>
+            <p class="description">基于流程图设计的标准化退货处理流程，确保高效准确的退货处理操作</p>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2>退货流程概述</h2>
+                <p>本流程详细说明了退货处理的标准操作程序，包括拦截件和客退两种主要路径的处理方法。所有退货处理必须按照本流程执行，以确保操作的一致性和准确性。</p>
+            </div>
+            
+            <div class="section">
+                <h2>流程起点</h2>
+                <div class="flow-section">
+                    <h3>退件</h3>
+                    <p>所有退货流程的起点，需要对退货进行分类处理。</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>主要处理分支</h2>
+                
+                <div class="branch-container">
+                    <div class="branch">
+                        <div class="branch-title">拦截件处理流程</div>
+                        
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">拦截件分类</div>
+                                <div class="step-content">对拦截件进行分类处理</div>
+                            </div>
+                        </div>
+                        
+                        <h3>处理方式</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">站点配送</div>
+                                <div class="step-content">由配送站点处理的拦截件</div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-title">自有取件</div>
+                                <div class="step-content">自行取回的拦截件</div>
+                            </div>
+                        </div>
+                        
+                        <h3>后续操作</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">扫描登记表格，交接</div>
+                                <div class="step-content">扫描并登记交接信息</div>
+                            </div>
+                        </div>
+                        
+                        <h3>最终处理</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">破损，少货，交接登记理赔</div>
+                                <div class="step-content">处理破损少货情况并登记理赔</div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-title">系统入库</div>
+                                <div class="step-content">完成系统入库操作</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="branch">
+                        <div class="branch-title">客退处理流程</div>
+                        
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">客退接收</div>
+                                <div class="step-content">接收客户退回的商品</div>
+                            </div>
+                        </div>
+                        
+                        <h3>登记处理</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">区分客户，登记表格</div>
+                                <div class="step-content">按客户分类并登记</div>
+                            </div>
+                        </div>
+                        
+                        <h3>交接流程</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">共享表格交接</div>
+                                <div class="step-content">共享交接表格信息</div>
+                            </div>
+                        </div>
+                        
+                        <h3>详细登记</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">扫描单号，登记好正品&残次品数量，选择对应的库位</div>
+                                <div class="step-content">详细登记商品信息并选择库位</div>
+                            </div>
+                        </div>
+                        
+                        <h3>完成处理</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">系统登记，入库</div>
+                                <div class="step-content">完成系统登记和入库操作</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>登记规范</h2>
+                <div class="notes">
+                    <h3>登记注意事项</h3>
+                    <p>所有退货处理必须按照以下规范进行登记：</p>
+                    <ul>
+                        <li><strong>时间：</strong>准确记录处理时间</li>
+                        <li><strong>单号：</strong>完整记录退货单号</li>
+                        <li><strong>货品名称：</strong>准确填写货品名称</li>
+                        <li><strong>条码：</strong>扫描或录入商品条码</li>
+                        <li><strong>正品&残次品数量：</strong>区分并记录正品和残次品数量</li>
+                    </ul>
+                </div>
+                
+                <h3>登记表示例</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>单号</th>
+                            <th>货品名称</th>
+                            <th>条码</th>
+                            <th>正品数量</th>
+                            <th>残次品数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-10-15 09:30</td>
+                            <td>RT20231015001</td>
+                            <td>商品A</td>
+                            <td>6920000000001</td>
+                            <td>5</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>2023-10-15 10:15</td>
+                            <td>RT20231015002</td>
+                            <td>商品B</td>
+                            <td>6920000000002</td>
+                            <td>3</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2023-10-15 11:20</td>
+                            <td>RT20231015003</td>
+                            <td>商品C</td>
+                            <td>6920000000003</td>
+                            <td>10</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>操作规范</h2>
+                <ol>
+                    <li>所有退货必须按照流程进行分类处理</li>
+                    <li>拦截件和客退必须分开处理，不得混淆</li>
+                    <li>登记信息必须准确无误，避免后续问题</li>
+                    <li>系统操作必须及时完成，确保数据同步</li>
+                    <li>遇到破损、少货情况必须立即登记并启动理赔流程</li>
+                </ol>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 退货流程管理系统 | 设计基于提供的流程图</p>
+        </footer>
+    </div>
+</body>
+</html>
