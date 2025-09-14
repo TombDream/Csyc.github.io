@@ -3,34 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./LOG/Csyc-LOG.jpg">
-    <title>操作流程</title>
+    <title>橙熟云仓 - 操作中心</title>
     <style>
-        body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            background-color: #f5f7fa;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
         
         .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 24px;
+        /* 主视觉区域 */
+        .hero {
+            display: flex;
+            min-height: 80vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        
+        /* 左侧内容区域 */
+        .content {
+            flex: 1;
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* 右侧背景区域 */
+        .background {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1496449903675-12b58d4ff5a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(251, 176, 64, 0.2) 0%, rgba(66, 153, 225, 0.3) 100%);
+        }
+        
+        /* 品牌标志 */
+        .logo {
+            color: #f76707;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        /* 标语 */
+        .tagline {
+            color: #495057;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+            max-width: 400px;
+        }
+        
+        /* 年份数字 */
+        .year {
+            font-size: 7rem;
+            font-weight: 900;
+            color: #f76707;
+            line-height: 1;
+            margin: 30px 0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 品牌名称 */
+        .brand {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 15px;
+        }
+        
+        /* 服务描述 */
+        .service {
+            color: #6c757d;
+            font-size: 1rem;
+            font-weight: 400;
+            max-width: 400px;
+        }
+        
+        /* 导航菜单 */
+        .nav-container {
+            position: relative;
+            z-index: 10;
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-container h1 {
+            color: #f76707;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
         }
         
         .nav-links {
@@ -50,6 +146,7 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         
         .nav-link:hover {
@@ -59,7 +156,7 @@
         }
         
         .nav-link:nth-child(1) {
-            background-color: #3498db;
+            background-color: #f76707;
         }
         
         .nav-link:nth-child(2) {
@@ -67,11 +164,15 @@
         }
         
         .nav-link:nth-child(3) {
-            background-color: #e74c3c;
+            background-color: #3498db;
+        }
+        
+        .nav-link:nth-child(4) {
+            background-color: #9b59b6;
         }
         
         .nav-link:nth-child(1):hover {
-            background-color: #2980b9;
+            background-color: #e8590c;
         }
         
         .nav-link:nth-child(2):hover {
@@ -79,18 +180,52 @@
         }
         
         .nav-link:nth-child(3):hover {
-            background-color: #c0392b;
+            background-color: #2980b9;
         }
         
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-                width: 95%;
+        .nav-link:nth-child(4):hover {
+            background-color: #8e44ad;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
             }
             
-            h1 {
-                font-size: 20px;
-                margin-bottom: 20px;
+            .background {
+                min-height: 300px;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .year {
+                font-size: 5rem;
+            }
+            
+            .nav-container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .year {
+                font-size: 4rem;
+            }
+            
+            .brand {
+                font-size: 2rem;
+            }
+            
+            .nav-container h1 {
+                font-size: 1.5rem;
             }
             
             .nav-link {
@@ -98,20 +233,42 @@
                 font-size: 14px;
             }
         }
+        
+        /* 页脚区域 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>操作流程</h1>
-        <div class="nav-links">
-            <a href="./操作01.html" class="nav-link">操作</a>
-            <a href="./收货.html" class="nav-link">收货</a>
-            <a href="./订单.html" class="nav-link">订单</a>
-            <a href="./订单1.html"class="nav-link">订单1</a>
+        <div class="hero">
+            <div class="content">
+                <div class="logo">橙熟云仓</div>
+                <div class="tagline">有加速度的一站式物流服务</div>
+                <div class="year">2025</div>
+                <div class="brand">橙熟云仓</div>
+                <div class="service">有加速度的一站式物流服务</div>
+            </div>
+            <div class="background">
+                <div class="nav-container">
+                    <h1>操作流程</h1>
+                    <div class="nav-links">
+                        <a href="./操作01.html" class="nav-link">操作</a>
+                        <a href="./收货.html" class="nav-link">收货</a>
+                        <a href="./订单.html" class="nav-link">订单</a>
+                        <a href="./订单1.html" class="nav-link">订单1</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <footer>
+        <p>© 2025 橙熟云仓 - 为您提供高效优质的物流服务</p>
+    </footer>
 </body>
 </html>
-
-
-
