@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>退货流程管理系统</title>
+    <title>退件整理流程管理系统</title>
     <style>
         * {
             margin: 0;
@@ -200,21 +200,21 @@
 <body>
     <div class="container">
         <header>
-            <h1>退货流程管理系统</h1>
-            <p class="description">基于流程图设计的标准化退货处理流程，确保高效准确的退货处理操作</p>
+            <h1>退件整理流程管理系统</h1>
+            <p class="description">基于流程图设计的标准化退件处理流程，确保高效准确的退件处理操作</p>
         </header>
         
         <div class="content">
             <div class="section">
-                <h2>退货流程概述</h2>
-                <p>本流程详细说明了退货处理的标准操作程序，包括拦截件和客退两种主要路径的处理方法。所有退货处理必须按照本流程执行，以确保操作的一致性和准确性。</p>
+                <h2>退件流程概述</h2>
+                <p>本流程详细说明了退件处理的标准操作程序，包括拦截件和客退两种主要路径的处理方法。所有退件处理必须按照本流程执行，以确保操作的一致性和准确性。</p>
             </div>
             
             <div class="section">
                 <h2>流程起点</h2>
                 <div class="flow-section">
                     <h3>退件</h3>
-                    <p>所有退货流程的起点，需要对退货进行分类处理。</p>
+                    <p>所有退件流程的起点，需要对退件进行分类处理。</p>
                 </div>
             </div>
             
@@ -232,37 +232,58 @@
                             </div>
                         </div>
                         
-                        <h3>处理方式</h3>
+                        <h3>送达仓库方式</h3>
                         <div class="process-steps">
                             <div class="step">
                                 <div class="step-title">站点配送</div>
-                                <div class="step-content">由配送站点处理的拦截件</div>
+                                <div class="step-content">站点司机自行配送至仓库</div>
                             </div>
                             
                             <div class="step">
                                 <div class="step-title">自有取件</div>
-                                <div class="step-content">自行取回的拦截件</div>
+                                <div class="step-content">仓库司机去站点领取</div>
                             </div>
                         </div>
                         
-                        <h3>后续操作</h3>
+                        <h3>登记要求</h3>
                         <div class="process-steps">
                             <div class="step">
-                                <div class="step-title">扫描登记表格，交接</div>
-                                <div class="step-content">扫描并登记交接信息</div>
+                                <div class="step-title">登记时间和单号</div>
+                                <div class="step-content">无论哪种送达方式，都需要登记时间和单号</div>
                             </div>
                         </div>
                         
-                        <h3>最终处理</h3>
+                        <h3>系统操作</h3>
                         <div class="process-steps">
                             <div class="step">
-                                <div class="step-title">破损，少货，交接登记理赔</div>
-                                <div class="step-content">处理破损少货情况并登记理赔</div>
+                                <div class="step-title">系统退货入库</div>
+                                <div class="step-content">在系统内完成退货入库操作</div>
+                            </div>
+                        </div>
+                        
+                        <h3>交接流程</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">与站点客服交接</div>
+                                <div class="step-content">登记后第一时间与站点客服交接</div>
+                            </div>
+                        </div>
+                        
+                        <h3>问题处理</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-title">仓库未收到处理</div>
+                                <div class="step-content">仓库只认仓库扫描的物流单号，未收到的让站点客服及时核对</div>
                             </div>
                             
                             <div class="step">
-                                <div class="step-title">系统入库</div>
-                                <div class="step-content">完成系统入库操作</div>
+                                <div class="step-title">少货破损处理</div>
+                                <div class="step-content">有少货破损的及时和站点客服做丢件登记理赔</div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-title">漏液处理</div>
+                                <div class="step-content">漏液的和客户反馈及时做出库处理</div>
                             </div>
                         </div>
                     </div>
@@ -277,35 +298,48 @@
                             </div>
                         </div>
                         
-                        <h3>登记处理</h3>
+                        <h3>表格管理</h3>
                         <div class="process-steps">
                             <div class="step">
-                                <div class="step-title">区分客户，登记表格</div>
-                                <div class="step-content">按客户分类并登记</div>
+                                <div class="step-title">共享表格区分</div>
+                                <div class="step-content">每个客户都需要有一份客退表格</div>
                             </div>
                         </div>
                         
-                        <h3>交接流程</h3>
+                        <h3>登记内容</h3>
                         <div class="process-steps">
                             <div class="step">
-                                <div class="step-title">共享表格交接</div>
-                                <div class="step-content">共享交接表格信息</div>
+                                <div class="step-title">表格登记内容</div>
+                                <div class="step-content">
+                                    <ul>
+                                        <li>时间</li>
+                                        <li>物流单号</li>
+                                        <li>货品名称</li>
+                                        <li>条码</li>
+                                        <li>正品&残次品数量</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <h3>详细登记</h3>
+                        <h3>系统入库</h3>
                         <div class="process-steps">
                             <div class="step">
-                                <div class="step-title">扫描单号，登记好正品&残次品数量，选择对应的库位</div>
-                                <div class="step-content">详细登记商品信息并选择库位</div>
+                                <div class="step-title">退货登记</div>
+                                <div class="step-content">扫描单号，登记正品&残次品数量，选择对应的系统库位</div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-title">非仓库品处理</div>
+                                <div class="step-content">买家退回非仓库品，在系统收货登记，保留视频证据</div>
                             </div>
                         </div>
                         
-                        <h3>完成处理</h3>
+                        <h3>快递错送处理</h3>
                         <div class="process-steps">
                             <div class="step">
-                                <div class="step-title">系统登记，入库</div>
-                                <div class="step-content">完成系统登记和入库操作</div>
+                                <div class="step-title">通知快递员</div>
+                                <div class="step-content">通知快递员及时取走错送件</div>
                             </div>
                         </div>
                     </div>
@@ -316,10 +350,10 @@
                 <h2>登记规范</h2>
                 <div class="notes">
                     <h3>登记注意事项</h3>
-                    <p>所有退货处理必须按照以下规范进行登记：</p>
+                    <p>所有退件处理必须按照以下规范进行登记：</p>
                     <ul>
                         <li><strong>时间：</strong>准确记录处理时间</li>
-                        <li><strong>单号：</strong>完整记录退货单号</li>
+                        <li><strong>单号：</strong>完整记录退件单号</li>
                         <li><strong>货品名称：</strong>准确填写货品名称</li>
                         <li><strong>条码：</strong>扫描或录入商品条码</li>
                         <li><strong>正品&残次品数量：</strong>区分并记录正品和残次品数量</li>
@@ -370,17 +404,20 @@
             <div class="section">
                 <h2>操作规范</h2>
                 <ol>
-                    <li>所有退货必须按照流程进行分类处理</li>
+                    <li>所有退件必须按照流程进行分类处理</li>
                     <li>拦截件和客退必须分开处理，不得混淆</li>
                     <li>登记信息必须准确无误，避免后续问题</li>
                     <li>系统操作必须及时完成，确保数据同步</li>
                     <li>遇到破损、少货情况必须立即登记并启动理赔流程</li>
+                    <li>漏液商品必须及时与客户沟通并做出库处理</li>
+                    <li>快递错送必须及时通知快递员取回</li>
+                    <li>非仓库品必须保留视频证据</li>
                 </ol>
             </div>
         </div>
         
         <footer>
-            <p>© 2023 退货流程管理系统 | 设计基于提供的流程图</p>
+            <p>© 2023 退件整理流程管理系统 | 设计基于提供的流程图</p>
         </footer>
     </div>
 </body>
